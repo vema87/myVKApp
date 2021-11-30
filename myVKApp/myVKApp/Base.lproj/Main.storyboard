@@ -60,28 +60,29 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myVKApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcT-nB-L2A">
-                                        <rect key="frame" x="169" y="88" width="76" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myVKApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcT-nB-L2A">
+                                        <rect key="frame" x="0.0" y="88" width="414" height="21"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="dcT-nB-L2A" firstAttribute="leading" secondItem="xL1-RB-aVD" secondAttribute="leading" id="0Z8-QV-VpK"/>
+                                    <constraint firstAttribute="bottom" secondItem="qHb-ds-Stc" secondAttribute="bottom" id="3gk-CO-v8C"/>
+                                    <constraint firstItem="dcT-nB-L2A" firstAttribute="width" secondItem="xL1-RB-aVD" secondAttribute="width" id="4jv-lH-fxB"/>
                                     <constraint firstItem="dcT-nB-L2A" firstAttribute="centerX" secondItem="PVN-Z6-OgR" secondAttribute="centerX" id="6j8-Vd-3vp"/>
-                                    <constraint firstAttribute="bottom" secondItem="qHb-ds-Stc" secondAttribute="bottom" constant="361" id="8XF-KK-Rns"/>
                                     <constraint firstItem="dcT-nB-L2A" firstAttribute="centerX" secondItem="WkO-lr-NFP" secondAttribute="centerX" id="919-Ig-hCD"/>
                                     <constraint firstItem="dcT-nB-L2A" firstAttribute="top" secondItem="xL1-RB-aVD" secondAttribute="top" constant="88" id="9Qx-no-zeZ"/>
                                     <constraint firstItem="3uU-DE-QOX" firstAttribute="top" secondItem="3w6-rW-x2y" secondAttribute="bottom" constant="54" id="B5s-Fy-O45"/>
                                     <constraint firstItem="qHb-ds-Stc" firstAttribute="top" secondItem="PVN-Z6-OgR" secondAttribute="bottom" constant="99" id="Ko0-A8-hp0"/>
-                                    <constraint firstItem="dcT-nB-L2A" firstAttribute="centerX" secondItem="WkO-lr-NFP" secondAttribute="centerX" id="Mza-9b-AMv"/>
+                                    <constraint firstAttribute="trailing" secondItem="dcT-nB-L2A" secondAttribute="trailing" id="Pry-Bn-a5Y"/>
                                     <constraint firstItem="dcT-nB-L2A" firstAttribute="centerX" secondItem="3w6-rW-x2y" secondAttribute="centerX" id="TEZ-59-Iby"/>
-                                    <constraint firstAttribute="trailing" secondItem="dcT-nB-L2A" secondAttribute="trailing" constant="169" id="VPd-hT-5oy"/>
                                     <constraint firstItem="dcT-nB-L2A" firstAttribute="centerX" secondItem="xL1-RB-aVD" secondAttribute="centerX" id="sQF-Ff-fhU"/>
                                     <constraint firstItem="3w6-rW-x2y" firstAttribute="top" secondItem="WkO-lr-NFP" secondAttribute="bottom" constant="17" id="tan-uB-iqL"/>
                                     <constraint firstItem="dcT-nB-L2A" firstAttribute="centerX" secondItem="qHb-ds-Stc" secondAttribute="centerX" id="vhU-UL-KC0"/>
                                     <constraint firstItem="dcT-nB-L2A" firstAttribute="centerX" secondItem="3uU-DE-QOX" secondAttribute="centerX" id="xDK-Hp-J1T"/>
-                                    <constraint firstItem="dcT-nB-L2A" firstAttribute="centerX" secondItem="xL1-RB-aVD" secondAttribute="centerX" id="xKo-18-JaL"/>
                                     <constraint firstItem="WkO-lr-NFP" firstAttribute="top" secondItem="dcT-nB-L2A" secondAttribute="bottom" constant="90" id="xve-K3-QNL"/>
                                     <constraint firstItem="PVN-Z6-OgR" firstAttribute="top" secondItem="3uU-DE-QOX" secondAttribute="bottom" constant="25" id="zrV-1v-gqk"/>
                                 </constraints>
@@ -90,11 +91,12 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xL1-RB-aVD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="63a-rv-Muh"/>
                             <constraint firstAttribute="bottom" secondItem="xL1-RB-aVD" secondAttribute="bottom" id="6mE-Bd-1Ut"/>
                             <constraint firstItem="xL1-RB-aVD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LLv-e1-qqg"/>
+                            <constraint firstItem="xL1-RB-aVD" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="UPI-TI-CFl"/>
                             <constraint firstItem="xL1-RB-aVD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mqc-Xh-0zc"/>
                             <constraint firstItem="xL1-RB-aVD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vgJ-9J-rxA"/>
                         </constraints>
@@ -113,9 +115,6 @@
     <resources>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

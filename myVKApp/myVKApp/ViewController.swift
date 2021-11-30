@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown),
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)),
 											   name: UIResponder.keyboardWillShowNotification,
 											   object: nil)
 		
@@ -55,14 +55,24 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func keyboardWasShown(notification: Notification) {
-		let info = notification.userInfo! as NSDictionary
-		// get size of keyboard:
-		let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as!
-					  NSValue).cgRectValue.size
-		let contentInsert = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height, right: 0)
+		let info = notification.userInfo!
+		let rect: CGRect = info[UIResponder.keyboardFrameBeginUserInfoKey] as! CGRect
+		let kbSize = rect.size
+		let insets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height, right: 0)
 		
-		self.scrollView.contentInset = contentInsert
-		self.scrollView.scrollIndicatorInsets = contentInsert
+		scrollView.contentInset = insets
+		scrollView.scrollIndicatorInsets = insets
+
+		var aRect = self.view.frame;
+		aRect.size.height -= kbSize.height;
+
+		let activeField: UITextField? = [loginInput, passwordInput].first { $0.isFirstResponder }
+		if let activeField = activeField {
+			if !aRect.contains(activeField.frame.origin) {
+				let scrollPoint = CGPoint(x: 0, y: activeField.frame.origin.y-kbSize.height)
+				scrollView.setContentOffset(scrollPoint, animated: true)
+			}
+		}
 	}
 	
 	@objc func keyboardWillBeHidden(notification: Notification) {
