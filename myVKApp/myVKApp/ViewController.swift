@@ -41,13 +41,17 @@ class ViewController: UIViewController {
 												  object: nil)
 	}
 	
-	// MARK: - Sign in button action
-	@IBAction func signInButton(_ sender: Any) {
-		if loginInput.text == "admin" && passwordInput.text == "1234" {
-			print("success")
-		} else {
-			print("failure")
+	override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+		let checkResult = checkUserData()
+		
+		if !checkResult {
+			showLoginError()
 		}
+		
+		loginInput.text = ""
+		passwordInput.text = ""
+		
+		return checkResult
 	}
 	
 	@objc func hideKeyboard() {
@@ -62,10 +66,10 @@ class ViewController: UIViewController {
 		
 		scrollView.contentInset = insets
 		scrollView.scrollIndicatorInsets = insets
-
+		
 		var aRect = self.view.frame;
 		aRect.size.height -= kbSize.height;
-
+		
 		let activeField: UITextField? = [loginInput, passwordInput].first { $0.isFirstResponder }
 		if let activeField = activeField {
 			if !aRect.contains(activeField.frame.origin) {
@@ -81,3 +85,30 @@ class ViewController: UIViewController {
 	}
 }
 
+private extension ViewController {
+	// MARK: - check login and password
+	func checkUserData() -> Bool {
+		guard
+			let login = loginInput.text,
+			let password = passwordInput.text
+		else {
+			return false
+		}
+		
+		if login == "admin" && password == "1234" {
+			return true
+		} else {
+			return false
+		}
+	}
+	
+	// MARK: - Show login error
+	func showLoginError() {
+		let alert = UIAlertController(title: "Error",
+									  message: "Login or password are not correct",
+									  preferredStyle: .alert)
+		let action  = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+		alert.addAction(action)
+		present(alert, animated: true, completion: nil)
+	}
+}
