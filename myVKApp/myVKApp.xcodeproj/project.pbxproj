@@ -13,6 +13,12 @@
 		B69127AD27552A7F0036FE5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69127AB27552A7F0036FE5F /* Main.storyboard */; };
 		B69127AF27552A810036FE5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69127AE27552A810036FE5F /* Assets.xcassets */; };
 		B69127B227552A810036FE5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69127B027552A810036FE5F /* LaunchScreen.storyboard */; };
+		B6E284C2275D83EB00306D3B /* MyFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E284C1275D83EB00306D3B /* MyFriendsTableViewController.swift */; };
+		B6E284C5275D842300306D3B /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E284C4275D842300306D3B /* FriendCell.swift */; };
+		B6E284C8275D846400306D3B /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E284C7275D846400306D3B /* FriendModel.swift */; };
+		B6F5B9DB275D5CDC0037C8C0 /* MyGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5B9DA275D5CDC0037C8C0 /* MyGroupsTableViewController.swift */; };
+		B6F5B9DF275D5DFC0037C8C0 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5B9DE275D5DFC0037C8C0 /* GroupCell.swift */; };
+		B6F5B9E2275D679E0037C8C0 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5B9E1275D679E0037C8C0 /* GroupModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		B69127AE27552A810036FE5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B69127B127552A810036FE5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B69127B327552A810036FE5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6E284C1275D83EB00306D3B /* MyFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewController.swift; sourceTree = "<group>"; };
+		B6E284C4275D842300306D3B /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		B6E284C7275D846400306D3B /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		B6F5B9DA275D5CDC0037C8C0 /* MyGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsTableViewController.swift; sourceTree = "<group>"; };
+		B6F5B9DE275D5DFC0037C8C0 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		B6F5B9E1275D679E0037C8C0 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 		B69127A427552A7F0036FE5F /* myVKApp */ = {
 			isa = PBXGroup;
 			children = (
+				B6F5B9D8275D56770037C8C0 /* Controllers */,
 				B69127A527552A7F0036FE5F /* AppDelegate.swift */,
 				B69127A727552A7F0036FE5F /* SceneDelegate.swift */,
 				B69127A927552A7F0036FE5F /* ViewController.swift */,
@@ -65,6 +78,67 @@
 				B69127B327552A810036FE5F /* Info.plist */,
 			);
 			path = myVKApp;
+			sourceTree = "<group>";
+		};
+		B6E284C0275D839400306D3B /* MyFriendsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B6E284C6275D844200306D3B /* Models */,
+				B6E284C3275D83F000306D3B /* Cell */,
+				B6E284C1275D83EB00306D3B /* MyFriendsTableViewController.swift */,
+			);
+			path = MyFriendsTableViewController;
+			sourceTree = "<group>";
+		};
+		B6E284C3275D83F000306D3B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B6E284C4275D842300306D3B /* FriendCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B6E284C6275D844200306D3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6E284C7275D846400306D3B /* FriendModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B6F5B9D8275D56770037C8C0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B6E284C0275D839400306D3B /* MyFriendsTableViewController */,
+				B6F5B9DC275D5D370037C8C0 /* MyGroupsTableViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B6F5B9DC275D5D370037C8C0 /* MyGroupsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B6F5B9E0275D67790037C8C0 /* Models */,
+				B6F5B9DD275D5DCE0037C8C0 /* Cell */,
+				B6F5B9DA275D5CDC0037C8C0 /* MyGroupsTableViewController.swift */,
+			);
+			path = MyGroupsTableViewController;
+			sourceTree = "<group>";
+		};
+		B6F5B9DD275D5DCE0037C8C0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B6F5B9DE275D5DFC0037C8C0 /* GroupCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B6F5B9E0275D67790037C8C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6F5B9E1275D679E0037C8C0 /* GroupModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +212,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F5B9DF275D5DFC0037C8C0 /* GroupCell.swift in Sources */,
 				B69127AA27552A7F0036FE5F /* ViewController.swift in Sources */,
 				B69127A627552A7F0036FE5F /* AppDelegate.swift in Sources */,
+				B6E284C5275D842300306D3B /* FriendCell.swift in Sources */,
+				B6E284C8275D846400306D3B /* FriendModel.swift in Sources */,
+				B6F5B9E2275D679E0037C8C0 /* GroupModel.swift in Sources */,
 				B69127A827552A7F0036FE5F /* SceneDelegate.swift in Sources */,
+				B6E284C2275D83EB00306D3B /* MyFriendsTableViewController.swift in Sources */,
+				B6F5B9DB275D5CDC0037C8C0 /* MyGroupsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
