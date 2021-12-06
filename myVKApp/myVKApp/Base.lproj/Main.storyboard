@@ -328,28 +328,53 @@
             </objects>
             <point key="canvasLocation" x="2808.6956521739135" y="450.66964285714283"/>
         </scene>
-        <!--Table View Controller-->
+        <!--External Groups Table View Controller-->
         <scene sceneID="IrP-c8-7la">
             <objects>
-                <tableViewController id="POv-Fm-8A9" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="e58-RN-TLn">
+                <tableViewController id="POv-Fm-8A9" customClass="ExternalGroupsTableViewController" customModule="myVKApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="e58-RN-TLn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <sections>
-                            <tableViewSection id="xtL-S2-dA2">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="M8a-lZ-cvx" customClass="GroupCell" customModule="myVKApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M8a-lZ-cvx" id="deS-YM-hCN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExternalGroupCellID" id="M8a-lZ-cvx" customClass="GroupCell" customModule="myVKApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="50.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M8a-lZ-cvx" id="deS-YM-hCN">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="po7-Qi-htO">
+                                            <rect key="frame" x="20" y="0.0" width="50" height="50.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="H1o-zo-iQi"/>
+                                                <constraint firstAttribute="width" constant="50" id="dSX-Kk-jE7"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xml-xQ-aFe">
+                                            <rect key="frame" x="90" y="11" width="294" height="28.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="po7-Qi-htO" firstAttribute="leading" secondItem="deS-YM-hCN" secondAttribute="leading" constant="20" id="QtX-jg-VRn"/>
+                                        <constraint firstItem="xml-xQ-aFe" firstAttribute="top" secondItem="deS-YM-hCN" secondAttribute="topMargin" id="dQK-zt-JQ3"/>
+                                        <constraint firstItem="xml-xQ-aFe" firstAttribute="leading" secondItem="po7-Qi-htO" secondAttribute="trailing" constant="20" id="dei-FJ-jHT"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xml-xQ-aFe" secondAttribute="trailing" constant="10" id="hOQ-ox-2VB"/>
+                                        <constraint firstAttribute="bottom" secondItem="po7-Qi-htO" secondAttribute="bottom" id="lRR-ov-Jcs"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="xml-xQ-aFe" secondAttribute="bottom" id="skU-t2-jkr"/>
+                                        <constraint firstItem="po7-Qi-htO" firstAttribute="top" secondItem="deS-YM-hCN" secondAttribute="top" id="zkO-dL-Jxb"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupAvatar" destination="po7-Qi-htO" id="skU-xy-jed"/>
+                                    <outlet property="groupName" destination="xml-xQ-aFe" id="Xux-8B-DHs"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="POv-Fm-8A9" id="7Bs-Ja-At1"/>
                             <outlet property="delegate" destination="POv-Fm-8A9" id="LrM-jT-Fz1"/>
@@ -359,7 +384,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtG-1A-KJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3842" y="451"/>
+            <point key="canvasLocation" x="3840.579710144928" y="450.66964285714283"/>
         </scene>
     </scenes>
     <resources>

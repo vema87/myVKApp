@@ -33,7 +33,7 @@ class Groups {
     }
 
     func leave(_ index: Int) {
-		var group = internalGroups.remove(at: index)
+		let group = internalGroups.remove(at: index)
 		externalGroups.append(group)
 		print("internal groups: \(internalGroups), \n external groups: \(externalGroups)")
     }
