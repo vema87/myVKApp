@@ -11,3 +11,30 @@ struct GroupModel {
 	let groupName: String
 	let groupAvatar: UIImage?
 }
+
+// Singleton groups
+class Groups {
+    static let shared: Groups = Groups()
+    
+    var internalGroups: [GroupModel] = [
+		GroupModel(groupName: "Group1", groupAvatar: UIImage(named: "group1")),
+		GroupModel(groupName: "Group2", groupAvatar: UIImage(named: "group2"))
+	]
+	
+    var externalGroups: [GroupModel] = [
+		GroupModel(groupName: "Group3", groupAvatar: UIImage(named: "group3")),
+		GroupModel(groupName: "Group4", groupAvatar: UIImage(named: "group4"))
+	]
+    
+    private init() {}
+
+    func join(_ index: Int) {
+        
+    }
+
+    func leave(_ index: Int) {
+		var group = internalGroups.remove(at: index)
+		externalGroups.append(group)
+		print("internal groups: \(internalGroups), \n external groups: \(externalGroups)")
+    }
+}

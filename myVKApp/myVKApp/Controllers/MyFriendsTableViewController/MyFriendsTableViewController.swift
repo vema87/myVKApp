@@ -9,13 +9,6 @@ import UIKit
 
 class MyFriendsTableViewController: UITableViewController {
 
-	var myFriends: [FriendModel] = [
-		FriendModel(friendName: "Friend1", friendAvatar: UIImage(named: "friend1")),
-		FriendModel(friendName: "Friend2", friendAvatar: UIImage(named: "friend2")),
-		FriendModel(friendName: "Friend3", friendAvatar: UIImage(named: "friend3")),
-		FriendModel(friendName: "Friend4", friendAvatar: UIImage(named: "friend4"))
-	]
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,7 +16,7 @@ class MyFriendsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myFriends.count
+        return Friends.shared.internalFriendsList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,8 +25,8 @@ class MyFriendsTableViewController: UITableViewController {
 			return UITableViewCell()
 		}
 
-        friendCell.friendName.text = myFriends[indexPath.row].friendName
-        friendCell.friendAvatar.image = myFriends[indexPath.row].friendAvatar
+        friendCell.friendName.text = Friends.shared.internalFriendsList[indexPath.row].friendName
+        friendCell.friendAvatar.image = Friends.shared.internalFriendsList[indexPath.row].friendAvatar
 
         return friendCell
     }

@@ -8,13 +8,6 @@
 import UIKit
 
 class MyGroupsTableViewController: UITableViewController {
-
-	var myGroups: [GroupModel] = [
-		GroupModel(groupName: "Group1", groupAvatar: UIImage(named: "group1")),
-		GroupModel(groupName: "Group2", groupAvatar: UIImage(named: "group2")),
-		GroupModel(groupName: "Group3", groupAvatar: UIImage(named: "group3")),
-		GroupModel(groupName: "Group4", groupAvatar: UIImage(named: "group4"))
-	]
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,7 +18,7 @@ class MyGroupsTableViewController: UITableViewController {
 	
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return myGroups.count
+		return Groups.shared.internalGroups.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,16 +27,17 @@ class MyGroupsTableViewController: UITableViewController {
 			return UITableViewCell()
 		}
 		
-		groupCell.groupName.text = myGroups[indexPath.row].groupName
-		groupCell.groupAvatar.image = myGroups[indexPath.row].groupAvatar
+		groupCell.groupName.text = Groups.shared.internalGroups[indexPath.row].groupName
+		groupCell.groupAvatar.image = Groups.shared.internalGroups[indexPath.row].groupAvatar
 		
 		return groupCell
 	}
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			// Delete the row from the data source
+			Groups.shared.leave(indexPath.row)
 			tableView.deleteRows(at: [indexPath], with: .fade)
+			tableView.reloadData()
 		} else if editingStyle == .insert {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
 		}
