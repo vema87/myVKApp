@@ -7,20 +7,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "FriendDataID"
 
-class MyFriendCollectionViewController: UICollectionViewController {
+class FriendCollectionViewController: UICollectionViewController {
+
+	var indexOfElement = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
 
@@ -29,16 +23,22 @@ class MyFriendCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 1 //Friends.shared.internalFriendsList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FriendCollectionViewCell
+        else {
+			return UICollectionViewCell()
+		}
     
-        // Configure the cell
+        cell.friendName.text = Friends.shared.internalFriendsList[indexOfElement].friendName
+        cell.friendAvatar.image = Friends.shared.internalFriendsList[indexOfElement].friendAvatar
     
         return cell
     }
+    
 
     // MARK: UICollectionViewDelegate
 

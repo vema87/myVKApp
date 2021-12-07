@@ -31,6 +31,16 @@ class MyFriendsTableViewController: UITableViewController {
         return friendCell
     }
     
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "FriendDataSegue" {
+			if let desctinationViewController = segue.destination as? FriendCollectionViewController,
+				let cell = sender as? UITableViewCell {
+				if let indexPath = tableView.indexPath(for: cell) {
+					desctinationViewController.indexOfElement = indexPath.row
+				}
+			}
+		}
+	}
 
     /*
     // Override to support conditional editing of the table view.
