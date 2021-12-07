@@ -317,7 +317,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="CNv-Sm-Gga">
-                        <barButtonItem key="rightBarButtonItem" title="Groups" id="tGK-bu-0c4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tGK-bu-0c4">
                             <connections>
                                 <segue destination="POv-Fm-8A9" kind="show" id="JwK-vE-4Pz"/>
                             </connections>

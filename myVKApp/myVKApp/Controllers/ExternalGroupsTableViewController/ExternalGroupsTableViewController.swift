@@ -30,6 +30,32 @@ class ExternalGroupsTableViewController: UITableViewController {
 		
 		return groupCell
 	}
+	
+//	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//		return true
+//	}
+//
+	
+	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let action = UIContextualAction(style: .normal, title: "Join") { [weak self] (action, view, completionHandler) in
+			Groups.shared.join(indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+			tableView.reloadData()
+			completionHandler(true)
+		}
+		
+		action.backgroundColor = .blue
+		return UISwipeActionsConfiguration(actions: [action])
+	}
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .insert {
+            Groups.shared.join(indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+			tableView.reloadData()
+        }
+    }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,14 +64,6 @@ class ExternalGroupsTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
     }
     */
 

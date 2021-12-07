@@ -29,7 +29,9 @@ class Groups {
     private init() {}
 
     func join(_ index: Int) {
-        
+        let group = externalGroups.remove(at: index)
+		internalGroups.append(group)
+		print("internal groups: \(internalGroups), \n external groups: \(externalGroups)")
     }
 
     func leave(_ index: Int) {
