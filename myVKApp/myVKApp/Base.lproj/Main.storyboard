@@ -32,11 +32,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zD2-7N-qMo" customClass="LikeControl" customModule="myVKApp" customModuleProvider="target">
+                                <rect key="frame" x="166" y="596" width="70" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Lfl-NF-HrR"/>
+                                    <constraint firstAttribute="height" constant="50" id="Vd6-jo-CcC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="odu-yb-Wyt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0tm-qZ-sgV" firstAttribute="centerY" secondItem="odu-yb-Wyt" secondAttribute="centerY" id="0YR-dR-Qln"/>
+                            <constraint firstItem="zD2-7N-qMo" firstAttribute="leading" secondItem="odu-yb-Wyt" secondAttribute="leading" constant="166" id="5gC-eC-eeg"/>
+                            <constraint firstItem="zD2-7N-qMo" firstAttribute="top" secondItem="0tm-qZ-sgV" secondAttribute="bottom" constant="25.5" id="LaJ-6R-dwR"/>
                             <constraint firstItem="0tm-qZ-sgV" firstAttribute="centerX" secondItem="odu-yb-Wyt" secondAttribute="centerX" id="r2x-Ms-Y8H"/>
                         </constraints>
                     </view>
@@ -47,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ny9-Dd-MKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3778" y="-281"/>
+            <point key="canvasLocation" x="3776.811594202899" y="-281.25"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -403,6 +413,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
