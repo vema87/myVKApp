@@ -33,10 +33,11 @@ class MyFriendsTableViewController: UITableViewController {
     
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "FriendDataSegue" {
-			if let desctinationViewController = segue.destination as? FriendCollectionViewController,
+			if let desctinationViewController = segue.destination as? MyFriendViewController,
 				let cell = sender as? UITableViewCell {
+				print("sender: \(sender), cell: \(cell)")
 				if let indexPath = tableView.indexPath(for: cell) {
-					desctinationViewController.indexOfElement = indexPath.row
+					desctinationViewController.image = Friends.shared.internalFriendsList[indexPath.row].friendAvatar
 				}
 			}
 		}
