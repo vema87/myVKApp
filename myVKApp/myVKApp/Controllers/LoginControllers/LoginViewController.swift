@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 	
 	@IBOutlet weak var loginInput: UITextField!
 	@IBOutlet weak var passwordInput: UITextField!
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
 	}
 }
 
-private extension ViewController {
+private extension LoginViewController {
 	// MARK: - check login and password
 	func checkUserData() -> Bool {
 		guard
