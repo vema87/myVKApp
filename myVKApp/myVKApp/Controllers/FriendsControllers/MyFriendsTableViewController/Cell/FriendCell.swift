@@ -9,7 +9,7 @@ import UIKit
 
 class FriendCell: UITableViewCell {
 
-	@IBOutlet weak var friendAvatar: UIImageView!
+	@IBOutlet weak var friendAvatar: FriendView!
 	@IBOutlet weak var friendName: UILabel!
 	
 	override func layoutSubviews() {
