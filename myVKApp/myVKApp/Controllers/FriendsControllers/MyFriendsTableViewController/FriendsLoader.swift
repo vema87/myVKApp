@@ -17,7 +17,7 @@ class FriendsLoader {
 		var newFriends: [Character: [FriendModel]] = [:]
 		for friend in friends {
 			guard
-				let firstChar = friend.friendName.first
+				let firstChar = friend.friendLastName.first
 				else {
 					continue
 				}
