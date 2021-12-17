@@ -7,16 +7,23 @@
 
 import UIKit
 
-class ExternalGroupsTableViewController: UITableViewController {
+class ExternalGroupsTableViewController: UITableViewController, UISearchBarDelegate {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var GroupSearchBar: UISearchBar!
+	
+	var filteredGroups = Groups.shared.externalGroups
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
+        self.GroupSearchBar.delegate = self
+        self.tableView.delegate = self
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return Groups.shared.externalGroups.count
+		return filteredGroups.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -25,17 +32,13 @@ class ExternalGroupsTableViewController: UITableViewController {
 			return UITableViewCell()
 		}
 		
-		groupCell.groupName.text = Groups.shared.externalGroups[indexPath.row].groupName
-		groupCell.groupAvatar.image = Groups.shared.externalGroups[indexPath.row].groupAvatar
+		groupCell.groupName.text = filteredGroups[indexPath.row].groupName
+		groupCell.groupAvatar.image = filteredGroups[indexPath.row].groupAvatar
 		
 		return groupCell
 	}
 	
-//	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//		return true
-//	}
-//
-	
+	// TODO: fix join problem with filtered data
 	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let action = UIContextualAction(style: .normal, title: "Join") { [weak self] (action, view, completionHandler) in
 			Groups.shared.join(indexPath.row)
@@ -55,6 +58,20 @@ class ExternalGroupsTableViewController: UITableViewController {
 			tableView.reloadData()
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//		print(">>> searchtext: \(searchText)")
+		self.filteredGroups = searchText.isEmpty ? Groups.shared.externalGroups : Groups.shared.externalGroups.filter( {$0.groupName.range(of: searchText, options: .caseInsensitive) != nil })
+		
+		print(">>> search: \(self.filteredGroups)")
+		self.tableView.reloadData()
+	}
+	
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		searchBar.text = ""
+		filteredGroups = Groups.shared.externalGroups
+		self.tableView.reloadData()
+	}
     
 
     /*
