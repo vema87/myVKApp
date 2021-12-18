@@ -33,7 +33,7 @@ class FriendCollectionViewController: UICollectionViewController {
 			return UICollectionViewCell()
 		}
     
-        cell.friendName.text = Friends.shared.internalFriendsList[indexOfElement].friendName
+        cell.friendName.text = Friends.shared.internalFriendsList[indexOfElement].friendLastName + " " + Friends.shared.internalFriendsList[indexOfElement].friendFirstName
         cell.friendAvatar.image = Friends.shared.internalFriendsList[indexOfElement].friendAvatar
     
         return cell

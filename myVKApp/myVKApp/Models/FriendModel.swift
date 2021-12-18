@@ -8,7 +8,8 @@
 import UIKit
 
 struct FriendModel {
-	let friendName: String
+	let friendLastName: String
+	let friendFirstName: String
 	let friendAvatar: UIImage?
 }
 
@@ -17,10 +18,10 @@ class Friends {
     static let shared: Friends = Friends()
     
 	var internalFriendsList: [FriendModel] = [
-		FriendModel(friendName: "Friend1", friendAvatar: UIImage(named: "friend1")),
-		FriendModel(friendName: "MyFriend2", friendAvatar: UIImage(named: "friend2")),
-		FriendModel(friendName: "OldFriend3", friendAvatar: UIImage(named: "friend3")),
-		FriendModel(friendName: "OldFriend4", friendAvatar: UIImage(named: "friend4"))
+		FriendModel(friendLastName: "Ivanov", friendFirstName: "Ivan", friendAvatar: UIImage(named: "friend1")),
+		FriendModel(friendLastName: "Sidorov", friendFirstName: "Petr", friendAvatar: UIImage(named: "friend2")),
+		FriendModel(friendLastName: "Surkova", friendFirstName: "Olga", friendAvatar: UIImage(named: "friend3")),
+		FriendModel(friendLastName: "Petrova", friendFirstName: "Elena", friendAvatar: UIImage(named: "friend4"))
 	]
 
     private init() {}

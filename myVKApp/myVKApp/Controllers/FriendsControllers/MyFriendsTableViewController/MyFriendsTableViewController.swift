@@ -14,6 +14,8 @@ class MyFriendsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundView = nil
+        self.tableView.backgroundColor = UIColor(red: 0.738, green: 0.628, blue: 0.884, alpha: 0.8)
         self.tableView.showsVerticalScrollIndicator = false
         loadLetters()
     }
@@ -46,7 +48,7 @@ class MyFriendsTableViewController: UITableViewController {
 		}
 		
 		let section = friends[indexPath.section]
-		let name = section.data[indexPath.row].friendName
+		let name = section.data[indexPath.row].friendLastName + " " + section.data[indexPath.row].friendFirstName
 		let image = section.data[indexPath.row].friendAvatar
 
         friendCell.friendName.text = name
@@ -63,10 +65,10 @@ class MyFriendsTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = UIView()
-		header.backgroundColor = .gray
+		header.backgroundColor = tableView.backgroundColor
 		
 		let letter = UILabel(frame: CGRect(x: 30, y: 5, width: 20, height: 20))
-		letter.textColor = .lightGray
+		letter.textColor = .black
 		letter.text = lettersOfNames[section]
 		letter.font = UIFont.systemFont(ofSize: 14)
 		header.addSubview(letter)
