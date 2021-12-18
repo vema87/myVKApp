@@ -18,6 +18,7 @@ class MyFriendsTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor(red: 0.738, green: 0.628, blue: 0.884, alpha: 0.8)
         self.tableView.showsVerticalScrollIndicator = false
         loadLetters()
+		self.tableView.sectionHeaderTopPadding = 0
     }
     
     func loadLetters() {
