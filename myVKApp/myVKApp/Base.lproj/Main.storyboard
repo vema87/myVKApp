@@ -52,6 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1en-p2-j05"/>
                     <connections>
+                        <outlet property="likeControl" destination="zD2-7N-qMo" id="K7V-mc-O3M"/>
                         <outlet property="myFriendView" destination="0tm-qZ-sgV" id="Nub-Cb-0xy"/>
                     </connections>
                 </viewController>
