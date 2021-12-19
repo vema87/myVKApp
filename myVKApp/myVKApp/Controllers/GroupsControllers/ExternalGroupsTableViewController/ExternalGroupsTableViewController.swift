@@ -39,12 +39,9 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
 		return groupCell
 	}
 	
-	// TODO: fix join problem with filtered data
 	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let action = UIContextualAction(style: .normal, title: "Join") { [weak self] (action, view, completionHandler) in
 			guard let self = self else { return }
-			//Groups.shared.join(indexPath.row)
-			//self?.filteredGroups = Groups.shared.externalGroups
 			guard let index = Groups.shared.find(self.filteredGroups[indexPath.row].groupName) else { return }
 			Groups.shared.join(index)
 			self.filteredGroups.remove(at: indexPath.row)
@@ -56,16 +53,6 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
 		action.backgroundColor = .blue
 		return UISwipeActionsConfiguration(actions: [action])
 	}
-	
-//	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .insert {
-//			guard let index = Groups.shared.find(self.filteredGroups[indexPath.row].groupName) else { return }
-//            Groups.shared.join(index)
-//            //self.filteredGroups = Groups.shared.externalGroups
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//			tableView.reloadData()
-//        }
-//    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //		print(">>> searchtext: \(searchText)")
