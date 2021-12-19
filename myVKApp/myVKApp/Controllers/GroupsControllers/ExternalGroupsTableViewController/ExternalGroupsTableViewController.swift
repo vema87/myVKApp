@@ -11,7 +11,7 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
 
 	@IBOutlet weak var GroupSearchBar: UISearchBar!
 	
-	var filteredGroups = Groups.shared.externalGroups
+	var filteredGroups: [GroupModel] = Groups.shared.externalGroups
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		print(">>> filteredGroups.count: \(filteredGroups.count)")
 		return filteredGroups.count
 	}
 	
@@ -42,6 +43,7 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
 	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let action = UIContextualAction(style: .normal, title: "Join") { [weak self] (action, view, completionHandler) in
 			Groups.shared.join(indexPath.row)
+			self?.filteredGroups = Groups.shared.externalGroups
             tableView.deleteRows(at: [indexPath], with: .fade)
 			tableView.reloadData()
 			completionHandler(true)
@@ -54,6 +56,7 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .insert {
             Groups.shared.join(indexPath.row)
+            self.filteredGroups = Groups.shared.externalGroups
             tableView.deleteRows(at: [indexPath], with: .fade)
 			tableView.reloadData()
         }

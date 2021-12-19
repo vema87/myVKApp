@@ -7,7 +7,9 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LoadingViewProtocol {
+
+	var loadingView: UIView?
 	
 	@IBOutlet weak var loginInput: UITextField!
 	@IBOutlet weak var passwordInput: UITextField!
@@ -16,6 +18,11 @@ class LoginViewController: UIViewController {
 	// MARK: - LifeCycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.startLoadingAnimation()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+			self.stopLoadingAnimation()
+		}
+		
 		let hideKeyBoardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
 		scrollView.addGestureRecognizer(hideKeyBoardGesture)
 	}
