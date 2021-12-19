@@ -28,6 +28,16 @@ class Groups {
     
     private init() {}
 
+	func find(_ what: String) -> Int? {
+		
+		for (index, group) in externalGroups.enumerated() {
+			if group.groupName == what {
+				return index
+			}
+		}
+		return nil
+	}
+
     func join(_ index: Int) {
         let group = externalGroups.remove(at: index)
 		internalGroups.append(group)
