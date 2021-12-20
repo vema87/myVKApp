@@ -15,9 +15,10 @@ class MyFriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundView = nil
-        self.tableView.backgroundColor = UIColor(red: 0.738, green: 0.628, blue: 0.884, alpha: 0.8)
+        self.tableView.backgroundColor = UIColor(red: 0.738, green: 0.628, blue: 0.884, alpha: 0.5)
         self.tableView.showsVerticalScrollIndicator = false
         loadLetters()
+		self.tableView.sectionHeaderTopPadding = 0
     }
     
     func loadLetters() {
@@ -66,6 +67,7 @@ class MyFriendsTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = UIView()
 		header.backgroundColor = tableView.backgroundColor
+		header.alpha = 1
 		
 		let letter = UILabel(frame: CGRect(x: 30, y: 5, width: 20, height: 20))
 		letter.textColor = .black
@@ -79,7 +81,7 @@ class MyFriendsTableViewController: UITableViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "FriendDataSegue" {
 			if let desctinationViewController = segue.destination as? MyFriendViewController,
-				let cell = sender as? UITableViewCell {
+			   let cell = sender as? FriendCell {
 //				print("sender: \(sender), cell: \(cell)")
 				if let indexPath = tableView.indexPath(for: cell) {
 					print(">>> indexPath: \(indexPath)")
@@ -90,5 +92,4 @@ class MyFriendsTableViewController: UITableViewController {
 		}
 	}
 	
-
 }

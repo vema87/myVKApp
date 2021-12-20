@@ -9,6 +9,7 @@ import UIKit
 
 class MyFriendViewController: UIViewController {
 	
+	@IBOutlet weak var likeControl: LikeControl!
 	@IBOutlet weak var myFriendView: MyFriendView!
 	var image: UIImage?
 	
@@ -19,5 +20,5 @@ class MyFriendViewController: UIViewController {
 		}
 	}
 	
-	
 }
+

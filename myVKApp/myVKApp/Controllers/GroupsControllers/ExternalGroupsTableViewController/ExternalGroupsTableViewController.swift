@@ -11,7 +11,7 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
 
 	@IBOutlet weak var GroupSearchBar: UISearchBar!
 	
-	var filteredGroups = Groups.shared.externalGroups
+	var filteredGroups: [GroupModel] = Groups.shared.externalGroups
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		print(">>> filteredGroups.count: \(filteredGroups.count)")
 		return filteredGroups.count
 	}
 	
@@ -38,11 +39,13 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
 		return groupCell
 	}
 	
-	// TODO: fix join problem with filtered data
 	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let action = UIContextualAction(style: .normal, title: "Join") { [weak self] (action, view, completionHandler) in
-			Groups.shared.join(indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+			guard let self = self else { return }
+			guard let index = Groups.shared.find(self.filteredGroups[indexPath.row].groupName) else { return }
+			Groups.shared.join(index)
+			self.filteredGroups.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .fade)
 			tableView.reloadData()
 			completionHandler(true)
 		}
@@ -50,14 +53,6 @@ class ExternalGroupsTableViewController: UITableViewController, UISearchBarDeleg
 		action.backgroundColor = .blue
 		return UISwipeActionsConfiguration(actions: [action])
 	}
-	
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .insert {
-            Groups.shared.join(indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-			tableView.reloadData()
-        }
-    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //		print(">>> searchtext: \(searchText)")

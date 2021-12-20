@@ -59,7 +59,7 @@ class LikeControl: UIControl {
 
 			UIView.transition(from: likesImageEmpty,
 							  to: likesImageFill,
-							  duration: 0.2,
+							  duration: 1,
 							  options: .transitionCrossDissolve)
 		} else {
 			self.likesLable.text = "0"
@@ -67,7 +67,7 @@ class LikeControl: UIControl {
 
 			UIView.transition(from: likesImageFill,
 							  to: likesImageEmpty,
-							  duration: 0.2,
+							  duration: 1,
 							  options: .transitionCrossDissolve)
 		}
 
