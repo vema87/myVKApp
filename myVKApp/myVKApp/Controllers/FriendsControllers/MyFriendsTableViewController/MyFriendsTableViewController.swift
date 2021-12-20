@@ -81,7 +81,7 @@ class MyFriendsTableViewController: UITableViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "FriendDataSegue" {
 			if let desctinationViewController = segue.destination as? MyFriendViewController,
-				let cell = sender as? UITableViewCell {
+			   let cell = sender as? FriendCell {
 //				print("sender: \(sender), cell: \(cell)")
 				if let indexPath = tableView.indexPath(for: cell) {
 					print(">>> indexPath: \(indexPath)")
@@ -92,5 +92,4 @@ class MyFriendsTableViewController: UITableViewController {
 		}
 	}
 	
-
 }
